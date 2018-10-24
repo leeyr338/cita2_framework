@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+import "blockchain.proto";
+
+/// FIXME: This two message is duplicate with the definition in network.proto
+message NewStatus {
+    uint64 height = 1;
+}
+
+message ConsensusMessage {
+    bytes data = 1;
+}
+
+service ConsensusService {
+    rpc VerifyProof (Proof) returns (RpcBool);
+    rpc ProcConsensusMessage (ConsensusMessage) returns (RpcStatus);
+    rpc SetStatus (NewStatus) returns (RpcStatus);
+}

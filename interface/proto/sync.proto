@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "blockchain.proto";
+
+message StatusReq {
+    uint32         node_id          = 1;
+
+    // FIXME: new message for Status or in this message ?
+    uint64         height           = 2;
+    bytes          block_hash       = 3;
+}
+
+message SyncRequest {
+    uint32         node_id          = 1;
+    uint64         start_height     = 2;
+    uint64         end_height       = 3;
+}
+
+message SyncResponse {
+    uint32           node_id        = 1;
+    repeated Block   blocks         = 2;
+}
+
+message PeerCount {
+    uint32           peer_count     = 1;
+}
+
+service SyncService {
+  rpc UpdateStatus (StatusReq) returns (RpcStatus);
+  rpc ProcSyncRequest (SyncRequest) returns (RpcStatus);
+  rpc ProcSyncResponse (SyncResponse) returns (RpcStatus);
+  rpc GetPeerCount (RpcNone) returns (PeerCount);
+}

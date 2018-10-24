@@ -1,0 +1,28 @@
+
+syntax = "proto3";
+
+import "blockchain.proto";
+
+message AddBlockRet {
+    uint64          height         = 1;
+    bytes           block_hash     = 2;
+}
+
+message GetBlockReq {
+    bytes           block_height   = 1;
+}
+
+message GetReceiptReq {
+    bytes           utx_hash       = 1;
+}
+
+message GetTransactionReq {
+    bytes           utx_hash       = 1;
+}
+
+service ChainService {
+    rpc AddBlock (Block) returns (AddBlockRet);
+    rpc GetBlock (GetBlockReq) returns (Block);
+    rpc GetReceipt (GetReceiptReq) returns (Receipt);
+    rpc GetTransaction (GetTransactionReq) returns (SignedTransaction);
+}

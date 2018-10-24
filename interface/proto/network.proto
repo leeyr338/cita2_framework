@@ -1,0 +1,44 @@
+
+syntax = "proto3";
+
+import "blockchain.proto";
+
+message  UnverifiedTransactionHashes {
+    uint32                 node_id         = 1;
+    repeated bytes         utx_hashes      = 2;
+}
+
+message ConsensusMessage {
+    bytes                  data            = 1;
+}
+
+message NewStatus {
+    uint64                 height          = 1;
+}
+
+/// FIXME: More SyncRequest messages for SendSyncRequest.
+message SyncRequest {
+    uint32                 node_id         = 1;
+    repeated uint64        heights         = 2;
+}
+
+/// FIXME: More messages messages for SendSyncResponse.
+message SyncResponse {
+    uint32                 node_id         = 1;
+    repeated Block         blocks          = 2;
+}
+
+///
+service NetworkService {
+    rpc ForwordUnverifiedTransaction (UnverifiedTransaction) returns (RpcStatus);
+
+    rpc SendUnverifiedTransactionHashes (UnverifiedTransactionHashes) returns (RpcStatus);
+
+    rpc BroadcastConsensusMessage (ConsensusMessage) returns (RpcStatus);
+
+    rpc BroadcastNewStatus (NewStatus) returns (RpcStatus);
+
+    rpc SendSyncRequest (SyncRequest) returns (RpcStatus);
+
+    rpc SendSyncResponse (SyncResponse) returns (RpcStatus);
+}

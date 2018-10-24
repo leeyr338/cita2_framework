@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+import "blockchain.proto";
+
+message ApplyReq {
+    SignedTransaction      stx       = 1;
+    uint64                 db_ref    = 2;
+}
+
+message ApplyRet {
+    Receipt                receipt       = 1;
+    ReceiptError           receipt_err   = 2;
+}
+
+service ExecutorService {
+    rpc Apply (ApplyReq) returns (ApplyRet);
+}
