@@ -1,0 +1,3 @@
+[submodule "interface/cita2-proto"]
+	path = interface/cita2-proto
+	url = git@github.com:cryptape/cita2-proto.git
