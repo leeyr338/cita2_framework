@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "blockchain.proto";
+import "common.proto";
 
 enum AddUnverifiedTransactionRetType {
     OK                 = 0;

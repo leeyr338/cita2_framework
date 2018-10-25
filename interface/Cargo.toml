@@ -1,0 +1,11 @@
+[package]
+name = "cita_interface"
+version = "0.1.0"
+authors = ["leeyr <leeyr@cryptape.com>"]
+description = "A test develop mode for CITA"
+license = "Apache-2.0"
+
+[dependencies]
+protobuf = { version = "^1.0.0"}
+grpc = "0.3.0"
+tls-api = "0.1.14"

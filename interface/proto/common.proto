@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+
+message RpcStatus {
+    uint32     ret      =  1;
+}
+
+message RpcBool {
+    bool       ret      = 1;
+}
+
+message RpcNone {
+
+}

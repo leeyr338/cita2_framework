@@ -24,8 +24,8 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 #[derive(PartialEq,Clone,Default)]
 pub struct UnverifiedTransactionHashes {
     // message fields
-    pub NodeID: u32,
-    pub UnverifiedTransactionHashes: ::protobuf::RepeatedField<::std::vec::Vec<u8>>,
+    pub node_id: u32,
+    pub utx_hashes: ::protobuf::RepeatedField<::std::vec::Vec<u8>>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
     cached_size: ::protobuf::CachedSize,
@@ -49,60 +49,60 @@ impl UnverifiedTransactionHashes {
         }
     }
 
-    // uint32 NodeID = 1;
+    // uint32 node_id = 1;
 
-    pub fn clear_NodeID(&mut self) {
-        self.NodeID = 0;
+    pub fn clear_node_id(&mut self) {
+        self.node_id = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_NodeID(&mut self, v: u32) {
-        self.NodeID = v;
+    pub fn set_node_id(&mut self, v: u32) {
+        self.node_id = v;
     }
 
-    pub fn get_NodeID(&self) -> u32 {
-        self.NodeID
+    pub fn get_node_id(&self) -> u32 {
+        self.node_id
     }
 
-    fn get_NodeID_for_reflect(&self) -> &u32 {
-        &self.NodeID
+    fn get_node_id_for_reflect(&self) -> &u32 {
+        &self.node_id
     }
 
-    fn mut_NodeID_for_reflect(&mut self) -> &mut u32 {
-        &mut self.NodeID
+    fn mut_node_id_for_reflect(&mut self) -> &mut u32 {
+        &mut self.node_id
     }
 
-    // repeated bytes UnverifiedTransactionHashes = 2;
+    // repeated bytes utx_hashes = 2;
 
-    pub fn clear_UnverifiedTransactionHashes(&mut self) {
-        self.UnverifiedTransactionHashes.clear();
+    pub fn clear_utx_hashes(&mut self) {
+        self.utx_hashes.clear();
     }
 
     // Param is passed by value, moved
-    pub fn set_UnverifiedTransactionHashes(&mut self, v: ::protobuf::RepeatedField<::std::vec::Vec<u8>>) {
-        self.UnverifiedTransactionHashes = v;
+    pub fn set_utx_hashes(&mut self, v: ::protobuf::RepeatedField<::std::vec::Vec<u8>>) {
+        self.utx_hashes = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_UnverifiedTransactionHashes(&mut self) -> &mut ::protobuf::RepeatedField<::std::vec::Vec<u8>> {
-        &mut self.UnverifiedTransactionHashes
+    pub fn mut_utx_hashes(&mut self) -> &mut ::protobuf::RepeatedField<::std::vec::Vec<u8>> {
+        &mut self.utx_hashes
     }
 
     // Take field
-    pub fn take_UnverifiedTransactionHashes(&mut self) -> ::protobuf::RepeatedField<::std::vec::Vec<u8>> {
-        ::std::mem::replace(&mut self.UnverifiedTransactionHashes, ::protobuf::RepeatedField::new())
+    pub fn take_utx_hashes(&mut self) -> ::protobuf::RepeatedField<::std::vec::Vec<u8>> {
+        ::std::mem::replace(&mut self.utx_hashes, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_UnverifiedTransactionHashes(&self) -> &[::std::vec::Vec<u8>] {
-        &self.UnverifiedTransactionHashes
+    pub fn get_utx_hashes(&self) -> &[::std::vec::Vec<u8>] {
+        &self.utx_hashes
     }
 
-    fn get_UnverifiedTransactionHashes_for_reflect(&self) -> &::protobuf::RepeatedField<::std::vec::Vec<u8>> {
-        &self.UnverifiedTransactionHashes
+    fn get_utx_hashes_for_reflect(&self) -> &::protobuf::RepeatedField<::std::vec::Vec<u8>> {
+        &self.utx_hashes
     }
 
-    fn mut_UnverifiedTransactionHashes_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::vec::Vec<u8>> {
-        &mut self.UnverifiedTransactionHashes
+    fn mut_utx_hashes_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::vec::Vec<u8>> {
+        &mut self.utx_hashes
     }
 }
 
@@ -120,10 +120,10 @@ impl ::protobuf::Message for UnverifiedTransactionHashes {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint32()?;
-                    self.NodeID = tmp;
+                    self.node_id = tmp;
                 },
                 2 => {
-                    ::protobuf::rt::read_repeated_bytes_into(wire_type, is, &mut self.UnverifiedTransactionHashes)?;
+                    ::protobuf::rt::read_repeated_bytes_into(wire_type, is, &mut self.utx_hashes)?;
                 },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
@@ -137,10 +137,10 @@ impl ::protobuf::Message for UnverifiedTransactionHashes {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        if self.NodeID != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.NodeID, ::protobuf::wire_format::WireTypeVarint);
+        if self.node_id != 0 {
+            my_size += ::protobuf::rt::value_size(1, self.node_id, ::protobuf::wire_format::WireTypeVarint);
         }
-        for value in &self.UnverifiedTransactionHashes {
+        for value in &self.utx_hashes {
             my_size += ::protobuf::rt::bytes_size(2, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -149,10 +149,10 @@ impl ::protobuf::Message for UnverifiedTransactionHashes {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        if self.NodeID != 0 {
-            os.write_uint32(1, self.NodeID)?;
+        if self.node_id != 0 {
+            os.write_uint32(1, self.node_id)?;
         }
-        for v in &self.UnverifiedTransactionHashes {
+        for v in &self.utx_hashes {
             os.write_bytes(2, &v)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -200,14 +200,14 @@ impl ::protobuf::MessageStatic for UnverifiedTransactionHashes {
             descriptor.get(|| {
                 let mut fields = ::std::vec::Vec::new();
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                    "NodeID",
-                    UnverifiedTransactionHashes::get_NodeID_for_reflect,
-                    UnverifiedTransactionHashes::mut_NodeID_for_reflect,
+                    "node_id",
+                    UnverifiedTransactionHashes::get_node_id_for_reflect,
+                    UnverifiedTransactionHashes::mut_node_id_for_reflect,
                 ));
                 fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeBytes>(
-                    "UnverifiedTransactionHashes",
-                    UnverifiedTransactionHashes::get_UnverifiedTransactionHashes_for_reflect,
-                    UnverifiedTransactionHashes::mut_UnverifiedTransactionHashes_for_reflect,
+                    "utx_hashes",
+                    UnverifiedTransactionHashes::get_utx_hashes_for_reflect,
+                    UnverifiedTransactionHashes::mut_utx_hashes_for_reflect,
                 ));
                 ::protobuf::reflect::MessageDescriptor::new::<UnverifiedTransactionHashes>(
                     "UnverifiedTransactionHashes",
@@ -221,8 +221,8 @@ impl ::protobuf::MessageStatic for UnverifiedTransactionHashes {
 
 impl ::protobuf::Clear for UnverifiedTransactionHashes {
     fn clear(&mut self) {
-        self.clear_NodeID();
-        self.clear_UnverifiedTransactionHashes();
+        self.clear_node_id();
+        self.clear_utx_hashes();
         self.unknown_fields.clear();
     }
 }
@@ -587,7 +587,7 @@ impl ::protobuf::reflect::ProtobufValue for NewStatus {
 #[derive(PartialEq,Clone,Default)]
 pub struct SyncRequest {
     // message fields
-    pub NodeID: u32,
+    pub node_id: u32,
     pub heights: ::std::vec::Vec<u64>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
@@ -612,27 +612,27 @@ impl SyncRequest {
         }
     }
 
-    // uint32 NodeID = 1;
+    // uint32 node_id = 1;
 
-    pub fn clear_NodeID(&mut self) {
-        self.NodeID = 0;
+    pub fn clear_node_id(&mut self) {
+        self.node_id = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_NodeID(&mut self, v: u32) {
-        self.NodeID = v;
+    pub fn set_node_id(&mut self, v: u32) {
+        self.node_id = v;
     }
 
-    pub fn get_NodeID(&self) -> u32 {
-        self.NodeID
+    pub fn get_node_id(&self) -> u32 {
+        self.node_id
     }
 
-    fn get_NodeID_for_reflect(&self) -> &u32 {
-        &self.NodeID
+    fn get_node_id_for_reflect(&self) -> &u32 {
+        &self.node_id
     }
 
-    fn mut_NodeID_for_reflect(&mut self) -> &mut u32 {
-        &mut self.NodeID
+    fn mut_node_id_for_reflect(&mut self) -> &mut u32 {
+        &mut self.node_id
     }
 
     // repeated uint64 heights = 2;
@@ -683,7 +683,7 @@ impl ::protobuf::Message for SyncRequest {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint32()?;
-                    self.NodeID = tmp;
+                    self.node_id = tmp;
                 },
                 2 => {
                     ::protobuf::rt::read_repeated_uint64_into(wire_type, is, &mut self.heights)?;
@@ -700,8 +700,8 @@ impl ::protobuf::Message for SyncRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        if self.NodeID != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.NodeID, ::protobuf::wire_format::WireTypeVarint);
+        if self.node_id != 0 {
+            my_size += ::protobuf::rt::value_size(1, self.node_id, ::protobuf::wire_format::WireTypeVarint);
         }
         for value in &self.heights {
             my_size += ::protobuf::rt::value_size(2, *value, ::protobuf::wire_format::WireTypeVarint);
@@ -712,8 +712,8 @@ impl ::protobuf::Message for SyncRequest {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        if self.NodeID != 0 {
-            os.write_uint32(1, self.NodeID)?;
+        if self.node_id != 0 {
+            os.write_uint32(1, self.node_id)?;
         }
         for v in &self.heights {
             os.write_uint64(2, *v)?;
@@ -763,9 +763,9 @@ impl ::protobuf::MessageStatic for SyncRequest {
             descriptor.get(|| {
                 let mut fields = ::std::vec::Vec::new();
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                    "NodeID",
-                    SyncRequest::get_NodeID_for_reflect,
-                    SyncRequest::mut_NodeID_for_reflect,
+                    "node_id",
+                    SyncRequest::get_node_id_for_reflect,
+                    SyncRequest::mut_node_id_for_reflect,
                 ));
                 fields.push(::protobuf::reflect::accessor::make_vec_accessor::<_, ::protobuf::types::ProtobufTypeUint64>(
                     "heights",
@@ -784,7 +784,7 @@ impl ::protobuf::MessageStatic for SyncRequest {
 
 impl ::protobuf::Clear for SyncRequest {
     fn clear(&mut self) {
-        self.clear_NodeID();
+        self.clear_node_id();
         self.clear_heights();
         self.unknown_fields.clear();
     }
@@ -805,7 +805,7 @@ impl ::protobuf::reflect::ProtobufValue for SyncRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct SyncResponse {
     // message fields
-    pub NodeID: u32,
+    pub node_id: u32,
     pub blocks: ::protobuf::RepeatedField<super::blockchain::Block>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
@@ -830,27 +830,27 @@ impl SyncResponse {
         }
     }
 
-    // uint32 NodeID = 1;
+    // uint32 node_id = 1;
 
-    pub fn clear_NodeID(&mut self) {
-        self.NodeID = 0;
+    pub fn clear_node_id(&mut self) {
+        self.node_id = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_NodeID(&mut self, v: u32) {
-        self.NodeID = v;
+    pub fn set_node_id(&mut self, v: u32) {
+        self.node_id = v;
     }
 
-    pub fn get_NodeID(&self) -> u32 {
-        self.NodeID
+    pub fn get_node_id(&self) -> u32 {
+        self.node_id
     }
 
-    fn get_NodeID_for_reflect(&self) -> &u32 {
-        &self.NodeID
+    fn get_node_id_for_reflect(&self) -> &u32 {
+        &self.node_id
     }
 
-    fn mut_NodeID_for_reflect(&mut self) -> &mut u32 {
-        &mut self.NodeID
+    fn mut_node_id_for_reflect(&mut self) -> &mut u32 {
+        &mut self.node_id
     }
 
     // repeated .Block blocks = 2;
@@ -906,7 +906,7 @@ impl ::protobuf::Message for SyncResponse {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint32()?;
-                    self.NodeID = tmp;
+                    self.node_id = tmp;
                 },
                 2 => {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.blocks)?;
@@ -923,8 +923,8 @@ impl ::protobuf::Message for SyncResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        if self.NodeID != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.NodeID, ::protobuf::wire_format::WireTypeVarint);
+        if self.node_id != 0 {
+            my_size += ::protobuf::rt::value_size(1, self.node_id, ::protobuf::wire_format::WireTypeVarint);
         }
         for value in &self.blocks {
             let len = value.compute_size();
@@ -936,8 +936,8 @@ impl ::protobuf::Message for SyncResponse {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        if self.NodeID != 0 {
-            os.write_uint32(1, self.NodeID)?;
+        if self.node_id != 0 {
+            os.write_uint32(1, self.node_id)?;
         }
         for v in &self.blocks {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
@@ -989,9 +989,9 @@ impl ::protobuf::MessageStatic for SyncResponse {
             descriptor.get(|| {
                 let mut fields = ::std::vec::Vec::new();
                 fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                    "NodeID",
-                    SyncResponse::get_NodeID_for_reflect,
-                    SyncResponse::mut_NodeID_for_reflect,
+                    "node_id",
+                    SyncResponse::get_node_id_for_reflect,
+                    SyncResponse::mut_node_id_for_reflect,
                 ));
                 fields.push(::protobuf::reflect::accessor::make_repeated_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<super::blockchain::Block>>(
                     "blocks",
@@ -1010,7 +1010,7 @@ impl ::protobuf::MessageStatic for SyncResponse {
 
 impl ::protobuf::Clear for SyncResponse {
     fn clear(&mut self) {
-        self.clear_NodeID();
+        self.clear_node_id();
         self.clear_blocks();
         self.unknown_fields.clear();
     }
@@ -1029,74 +1029,73 @@ impl ::protobuf::reflect::ProtobufValue for SyncResponse {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\rnetwork.proto\x1a\x10blockchain.proto\"w\n\x1bUnverifiedTransactionH\
-    ashes\x12\x16\n\x06NodeID\x18\x01\x20\x01(\rR\x06NodeID\x12@\n\x1bUnveri\
-    fiedTransactionHashes\x18\x02\x20\x03(\x0cR\x1bUnverifiedTransactionHash\
-    es\"&\n\x10ConsensusMessage\x12\x12\n\x04data\x18\x01\x20\x01(\x0cR\x04d\
-    ata\"#\n\tNewStatus\x12\x16\n\x06height\x18\x01\x20\x01(\x04R\x06height\
-    \"?\n\x0bSyncRequest\x12\x16\n\x06NodeID\x18\x01\x20\x01(\rR\x06NodeID\
-    \x12\x18\n\x07heights\x18\x02\x20\x03(\x04R\x07heights\"F\n\x0cSyncRespo\
-    nse\x12\x16\n\x06NodeID\x18\x01\x20\x01(\rR\x06NodeID\x12\x1e\n\x06block\
-    s\x18\x02\x20\x03(\x0b2\x06.BlockR\x06blocks2\xe7\x02\n\x0eNetworkServic\
-    e\x12B\n\x1cForwordUnverifiedTransaction\x12\x16.UnverifiedTransaction\
-    \x1a\n.RpcStatus\x12K\n\x1fSendUnverifiedTransactionHashes\x12\x1c.Unver\
-    ifiedTransactionHashes\x1a\n.RpcStatus\x12:\n\x19BroadcastConsensusMessa\
-    ge\x12\x11.ConsensusMessage\x1a\n.RpcStatus\x12,\n\x12BroadcastNewStatus\
-    \x12\n.NewStatus\x1a\n.RpcStatus\x12+\n\x0fSendSyncRequest\x12\x0c.SyncR\
-    equest\x1a\n.RpcStatus\x12-\n\x10SendSyncResponse\x12\r.SyncResponse\x1a\
-    \n.RpcStatusJ\x9a\t\n\x06\x12\x04\x01\0+\x01\n\x08\n\x01\x0c\x12\x03\x01\
-    \0\x12\n\t\n\x02\x03\0\x12\x03\x03\x07\x19\n\n\n\x02\x04\0\x12\x04\x05\0\
-    \x08\x01\n\n\n\x03\x04\0\x01\x12\x03\x05\t$\n\x0b\n\x04\x04\0\x02\0\x12\
-    \x03\x06\x04>\n\r\n\x05\x04\0\x02\0\x04\x12\x04\x06\x04\x05&\n\x0c\n\x05\
-    \x04\0\x02\0\x05\x12\x03\x06\x04\n\n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\
-    \x06\x1b!\n\x0c\n\x05\x04\0\x02\0\x03\x12\x03\x06<=\n\x0b\n\x04\x04\0\
-    \x02\x01\x12\x03\x07\x04>\n\x0c\n\x05\x04\0\x02\x01\x04\x12\x03\x07\x04\
-    \x0c\n\x0c\n\x05\x04\0\x02\x01\x05\x12\x03\x07\r\x12\n\x0c\n\x05\x04\0\
-    \x02\x01\x01\x12\x03\x07\x1b6\n\x0c\n\x05\x04\0\x02\x01\x03\x12\x03\x07<\
-    =\n\n\n\x02\x04\x01\x12\x04\n\0\x0c\x01\n\n\n\x03\x04\x01\x01\x12\x03\n\
-    \x08\x18\n\x0b\n\x04\x04\x01\x02\0\x12\x03\x0b\x04\x13\n\r\n\x05\x04\x01\
-    \x02\0\x04\x12\x04\x0b\x04\n\x1a\n\x0c\n\x05\x04\x01\x02\0\x05\x12\x03\
-    \x0b\x04\t\n\x0c\n\x05\x04\x01\x02\0\x01\x12\x03\x0b\n\x0e\n\x0c\n\x05\
-    \x04\x01\x02\0\x03\x12\x03\x0b\x11\x12\n\n\n\x02\x04\x02\x12\x04\x0e\0\
-    \x10\x01\n\n\n\x03\x04\x02\x01\x12\x03\x0e\x08\x11\n\x0b\n\x04\x04\x02\
-    \x02\0\x12\x03\x0f\x04\x16\n\r\n\x05\x04\x02\x02\0\x04\x12\x04\x0f\x04\
-    \x0e\x13\n\x0c\n\x05\x04\x02\x02\0\x05\x12\x03\x0f\x04\n\n\x0c\n\x05\x04\
-    \x02\x02\0\x01\x12\x03\x0f\x0b\x11\n\x0c\n\x05\x04\x02\x02\0\x03\x12\x03\
-    \x0f\x14\x15\nD\n\x02\x04\x03\x12\x04\x13\0\x16\x01\x1a8/\x20FIXME:\x20M\
-    ore\x20SyncRequest\x20messages\x20for\x20SendSyncRequest.\n\n\n\n\x03\
-    \x04\x03\x01\x12\x03\x13\x08\x13\n\x0b\n\x04\x04\x03\x02\0\x12\x03\x14\
-    \x04*\n\r\n\x05\x04\x03\x02\0\x04\x12\x04\x14\x04\x13\x15\n\x0c\n\x05\
-    \x04\x03\x02\0\x05\x12\x03\x14\x04\n\n\x0c\n\x05\x04\x03\x02\0\x01\x12\
-    \x03\x14\x19\x1f\n\x0c\n\x05\x04\x03\x02\0\x03\x12\x03\x14()\n\x0b\n\x04\
-    \x04\x03\x02\x01\x12\x03\x15\x04*\n\x0c\n\x05\x04\x03\x02\x01\x04\x12\
-    \x03\x15\x04\x0c\n\x0c\n\x05\x04\x03\x02\x01\x05\x12\x03\x15\r\x13\n\x0c\
-    \n\x05\x04\x03\x02\x01\x01\x12\x03\x15\x19\x20\n\x0c\n\x05\x04\x03\x02\
-    \x01\x03\x12\x03\x15()\nB\n\x02\x04\x04\x12\x04\x19\0\x1c\x01\x1a6/\x20F\
+    \n\rnetwork.proto\x1a\x10blockchain.proto\x1a\x0ccommon.proto\"U\n\x1bUn\
+    verifiedTransactionHashes\x12\x17\n\x07node_id\x18\x01\x20\x01(\rR\x06no\
+    deId\x12\x1d\n\nutx_hashes\x18\x02\x20\x03(\x0cR\tutxHashes\"&\n\x10Cons\
+    ensusMessage\x12\x12\n\x04data\x18\x01\x20\x01(\x0cR\x04data\"#\n\tNewSt\
+    atus\x12\x16\n\x06height\x18\x01\x20\x01(\x04R\x06height\"@\n\x0bSyncReq\
+    uest\x12\x17\n\x07node_id\x18\x01\x20\x01(\rR\x06nodeId\x12\x18\n\x07hei\
+    ghts\x18\x02\x20\x03(\x04R\x07heights\"G\n\x0cSyncResponse\x12\x17\n\x07\
+    node_id\x18\x01\x20\x01(\rR\x06nodeId\x12\x1e\n\x06blocks\x18\x02\x20\
+    \x03(\x0b2\x06.BlockR\x06blocks2\xe7\x02\n\x0eNetworkService\x12B\n\x1cF\
+    orwordUnverifiedTransaction\x12\x16.UnverifiedTransaction\x1a\n.RpcStatu\
+    s\x12K\n\x1fSendUnverifiedTransactionHashes\x12\x1c.UnverifiedTransactio\
+    nHashes\x1a\n.RpcStatus\x12:\n\x19BroadcastConsensusMessage\x12\x11.Cons\
+    ensusMessage\x1a\n.RpcStatus\x12,\n\x12BroadcastNewStatus\x12\n.NewStatu\
+    s\x1a\n.RpcStatus\x12+\n\x0fSendSyncRequest\x12\x0c.SyncRequest\x1a\n.Rp\
+    cStatus\x12-\n\x10SendSyncResponse\x12\r.SyncResponse\x1a\n.RpcStatusJ\
+    \xa5\t\n\x06\x12\x04\x01\0,\x01\n\x08\n\x01\x0c\x12\x03\x01\0\x12\n\t\n\
+    \x02\x03\0\x12\x03\x03\x07\x19\n\t\n\x02\x03\x01\x12\x03\x04\x07\x15\n\n\
+    \n\x02\x04\0\x12\x04\x06\0\t\x01\n\n\n\x03\x04\0\x01\x12\x03\x06\t$\n\
+    \x0b\n\x04\x04\0\x02\0\x12\x03\x07\x04/\n\r\n\x05\x04\0\x02\0\x04\x12\
+    \x04\x07\x04\x06&\n\x0c\n\x05\x04\0\x02\0\x05\x12\x03\x07\x04\n\n\x0c\n\
+    \x05\x04\0\x02\0\x01\x12\x03\x07\x1b\"\n\x0c\n\x05\x04\0\x02\0\x03\x12\
+    \x03\x07-.\n\x0b\n\x04\x04\0\x02\x01\x12\x03\x08\x04/\n\x0c\n\x05\x04\0\
+    \x02\x01\x04\x12\x03\x08\x04\x0c\n\x0c\n\x05\x04\0\x02\x01\x05\x12\x03\
+    \x08\r\x12\n\x0c\n\x05\x04\0\x02\x01\x01\x12\x03\x08\x1b%\n\x0c\n\x05\
+    \x04\0\x02\x01\x03\x12\x03\x08-.\n\n\n\x02\x04\x01\x12\x04\x0b\0\r\x01\n\
+    \n\n\x03\x04\x01\x01\x12\x03\x0b\x08\x18\n\x0b\n\x04\x04\x01\x02\0\x12\
+    \x03\x0c\x04/\n\r\n\x05\x04\x01\x02\0\x04\x12\x04\x0c\x04\x0b\x1a\n\x0c\
+    \n\x05\x04\x01\x02\0\x05\x12\x03\x0c\x04\t\n\x0c\n\x05\x04\x01\x02\0\x01\
+    \x12\x03\x0c\x1b\x1f\n\x0c\n\x05\x04\x01\x02\0\x03\x12\x03\x0c-.\n\n\n\
+    \x02\x04\x02\x12\x04\x0f\0\x11\x01\n\n\n\x03\x04\x02\x01\x12\x03\x0f\x08\
+    \x11\n\x0b\n\x04\x04\x02\x02\0\x12\x03\x10\x04/\n\r\n\x05\x04\x02\x02\0\
+    \x04\x12\x04\x10\x04\x0f\x13\n\x0c\n\x05\x04\x02\x02\0\x05\x12\x03\x10\
+    \x04\n\n\x0c\n\x05\x04\x02\x02\0\x01\x12\x03\x10\x1b!\n\x0c\n\x05\x04\
+    \x02\x02\0\x03\x12\x03\x10-.\nD\n\x02\x04\x03\x12\x04\x14\0\x17\x01\x1a8\
+    /\x20FIXME:\x20More\x20SyncRequest\x20messages\x20for\x20SendSyncRequest\
+    .\n\n\n\n\x03\x04\x03\x01\x12\x03\x14\x08\x13\n\x0b\n\x04\x04\x03\x02\0\
+    \x12\x03\x15\x04/\n\r\n\x05\x04\x03\x02\0\x04\x12\x04\x15\x04\x14\x15\n\
+    \x0c\n\x05\x04\x03\x02\0\x05\x12\x03\x15\x04\n\n\x0c\n\x05\x04\x03\x02\0\
+    \x01\x12\x03\x15\x1b\"\n\x0c\n\x05\x04\x03\x02\0\x03\x12\x03\x15-.\n\x0b\
+    \n\x04\x04\x03\x02\x01\x12\x03\x16\x04/\n\x0c\n\x05\x04\x03\x02\x01\x04\
+    \x12\x03\x16\x04\x0c\n\x0c\n\x05\x04\x03\x02\x01\x05\x12\x03\x16\r\x13\n\
+    \x0c\n\x05\x04\x03\x02\x01\x01\x12\x03\x16\x1b\"\n\x0c\n\x05\x04\x03\x02\
+    \x01\x03\x12\x03\x16-.\nB\n\x02\x04\x04\x12\x04\x1a\0\x1d\x01\x1a6/\x20F\
     IXME:\x20More\x20messages\x20messages\x20for\x20SendSyncResponse.\n\n\n\
-    \n\x03\x04\x04\x01\x12\x03\x19\x08\x14\n\x0b\n\x04\x04\x04\x02\0\x12\x03\
-    \x1a\x04*\n\r\n\x05\x04\x04\x02\0\x04\x12\x04\x1a\x04\x19\x16\n\x0c\n\
-    \x05\x04\x04\x02\0\x05\x12\x03\x1a\x04\n\n\x0c\n\x05\x04\x04\x02\0\x01\
-    \x12\x03\x1a\x19\x1f\n\x0c\n\x05\x04\x04\x02\0\x03\x12\x03\x1a()\n\x0b\n\
-    \x04\x04\x04\x02\x01\x12\x03\x1b\x04*\n\x0c\n\x05\x04\x04\x02\x01\x04\
-    \x12\x03\x1b\x04\x0c\n\x0c\n\x05\x04\x04\x02\x01\x06\x12\x03\x1b\r\x12\n\
-    \x0c\n\x05\x04\x04\x02\x01\x01\x12\x03\x1b\x19\x1f\n\x0c\n\x05\x04\x04\
-    \x02\x01\x03\x12\x03\x1b()\n\x0e\n\x02\x06\0\x12\x04\x1f\0+\x01\x1a\x02/\
-    \n\n\n\n\x03\x06\0\x01\x12\x03\x1f\x08\x16\n\x0b\n\x04\x06\0\x02\0\x12\
-    \x03\x20\x04Q\n\x0c\n\x05\x06\0\x02\0\x01\x12\x03\x20\x08$\n\x0c\n\x05\
-    \x06\0\x02\0\x02\x12\x03\x20&;\n\x0c\n\x05\x06\0\x02\0\x03\x12\x03\x20FO\
-    \n\x0b\n\x04\x06\0\x02\x01\x12\x03\"\x04Z\n\x0c\n\x05\x06\0\x02\x01\x01\
-    \x12\x03\"\x08'\n\x0c\n\x05\x06\0\x02\x01\x02\x12\x03\")D\n\x0c\n\x05\
-    \x06\0\x02\x01\x03\x12\x03\"OX\n\x0b\n\x04\x06\0\x02\x02\x12\x03$\x04I\n\
-    \x0c\n\x05\x06\0\x02\x02\x01\x12\x03$\x08!\n\x0c\n\x05\x06\0\x02\x02\x02\
-    \x12\x03$#3\n\x0c\n\x05\x06\0\x02\x02\x03\x12\x03$>G\n\x0b\n\x04\x06\0\
-    \x02\x03\x12\x03&\x04;\n\x0c\n\x05\x06\0\x02\x03\x01\x12\x03&\x08\x1a\n\
-    \x0c\n\x05\x06\0\x02\x03\x02\x12\x03&\x1c%\n\x0c\n\x05\x06\0\x02\x03\x03\
-    \x12\x03&09\n\x0b\n\x04\x06\0\x02\x04\x12\x03(\x049\n\x0c\n\x05\x06\0\
-    \x02\x04\x01\x12\x03(\x08\x17\n\x0c\n\x05\x06\0\x02\x04\x02\x12\x03(\x18\
-    #\n\x0c\n\x05\x06\0\x02\x04\x03\x12\x03(.7\n\x0b\n\x04\x06\0\x02\x05\x12\
-    \x03*\x04;\n\x0c\n\x05\x06\0\x02\x05\x01\x12\x03*\x08\x18\n\x0c\n\x05\
-    \x06\0\x02\x05\x02\x12\x03*\x19%\n\x0c\n\x05\x06\0\x02\x05\x03\x12\x03*0\
-    9b\x06proto3\
+    \n\x03\x04\x04\x01\x12\x03\x1a\x08\x14\n\x0b\n\x04\x04\x04\x02\0\x12\x03\
+    \x1b\x04/\n\r\n\x05\x04\x04\x02\0\x04\x12\x04\x1b\x04\x1a\x16\n\x0c\n\
+    \x05\x04\x04\x02\0\x05\x12\x03\x1b\x04\n\n\x0c\n\x05\x04\x04\x02\0\x01\
+    \x12\x03\x1b\x1b\"\n\x0c\n\x05\x04\x04\x02\0\x03\x12\x03\x1b-.\n\x0b\n\
+    \x04\x04\x04\x02\x01\x12\x03\x1c\x04/\n\x0c\n\x05\x04\x04\x02\x01\x04\
+    \x12\x03\x1c\x04\x0c\n\x0c\n\x05\x04\x04\x02\x01\x06\x12\x03\x1c\r\x12\n\
+    \x0c\n\x05\x04\x04\x02\x01\x01\x12\x03\x1c\x1b!\n\x0c\n\x05\x04\x04\x02\
+    \x01\x03\x12\x03\x1c-.\n\x0e\n\x02\x06\0\x12\x04\x20\0,\x01\x1a\x02/\n\n\
+    \n\n\x03\x06\0\x01\x12\x03\x20\x08\x16\n\x0b\n\x04\x06\0\x02\0\x12\x03!\
+    \x04Q\n\x0c\n\x05\x06\0\x02\0\x01\x12\x03!\x08$\n\x0c\n\x05\x06\0\x02\0\
+    \x02\x12\x03!&;\n\x0c\n\x05\x06\0\x02\0\x03\x12\x03!FO\n\x0b\n\x04\x06\0\
+    \x02\x01\x12\x03#\x04Z\n\x0c\n\x05\x06\0\x02\x01\x01\x12\x03#\x08'\n\x0c\
+    \n\x05\x06\0\x02\x01\x02\x12\x03#)D\n\x0c\n\x05\x06\0\x02\x01\x03\x12\
+    \x03#OX\n\x0b\n\x04\x06\0\x02\x02\x12\x03%\x04I\n\x0c\n\x05\x06\0\x02\
+    \x02\x01\x12\x03%\x08!\n\x0c\n\x05\x06\0\x02\x02\x02\x12\x03%#3\n\x0c\n\
+    \x05\x06\0\x02\x02\x03\x12\x03%>G\n\x0b\n\x04\x06\0\x02\x03\x12\x03'\x04\
+    ;\n\x0c\n\x05\x06\0\x02\x03\x01\x12\x03'\x08\x1a\n\x0c\n\x05\x06\0\x02\
+    \x03\x02\x12\x03'\x1c%\n\x0c\n\x05\x06\0\x02\x03\x03\x12\x03'09\n\x0b\n\
+    \x04\x06\0\x02\x04\x12\x03)\x04:\n\x0c\n\x05\x06\0\x02\x04\x01\x12\x03)\
+    \x08\x17\n\x0c\n\x05\x06\0\x02\x04\x02\x12\x03)\x19$\n\x0c\n\x05\x06\0\
+    \x02\x04\x03\x12\x03)/8\n\x0b\n\x04\x06\0\x02\x05\x12\x03+\x04<\n\x0c\n\
+    \x05\x06\0\x02\x05\x01\x12\x03+\x08\x18\n\x0c\n\x05\x06\0\x02\x05\x02\
+    \x12\x03+\x1a&\n\x0c\n\x05\x06\0\x02\x05\x03\x12\x03+1:b\x06proto3\
 ";
 
 static mut file_descriptor_proto_lazy: ::protobuf::lazy::Lazy<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::lazy::Lazy {

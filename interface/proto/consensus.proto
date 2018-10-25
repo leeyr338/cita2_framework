@@ -2,6 +2,7 @@
 syntax = "proto3";
 
 import "blockchain.proto";
+import "common.proto";
 
 /// FIXME: This two message is duplicate with the definition in network.proto
 message NewStatus {

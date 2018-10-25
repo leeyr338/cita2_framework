@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "blockchain.proto";
+import "common.proto";
 
 message StatusReq {
     uint32         node_id          = 1;
